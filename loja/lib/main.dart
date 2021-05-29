@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loja/homepage.dart';
-import 'package:loja/onboarding.dart';
+
+import 'package:loja/loginpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Loja Demo',
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: Colors.orange,
       ),
-      home: OnBoarding(),
+      home: LoginPage(),
     );
   }
 }

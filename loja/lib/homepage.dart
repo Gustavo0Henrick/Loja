@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja/core/colors.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -7,14 +8,14 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.menu),
-          color: Colors.white,
+          color: CustomColors.white,
           onPressed: () {},
         ),
         actions: [
           IconButton(
             icon: Icon(
               Icons.shopping_bag,
-              color: Colors.white,
+              color: CustomColors.white,
             ),
             onPressed: () {},
           )
@@ -23,7 +24,7 @@ class HomePage extends StatelessWidget {
         title: Text(
           'Home Page',
           style: TextStyle(
-            color: Colors.white,
+            color: CustomColors.white,
           ),
         ),
         flexibleSpace: Container(
@@ -32,8 +33,8 @@ class HomePage extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Colors.yellow,
-                Colors.orange,
+                CustomColors.yellow,
+                CustomColors.orangeMain,
               ],
             ),
           ),
