@@ -203,10 +203,13 @@ class _LoginPageState extends State<LoginPage> {
                                           }
                                           // widget.notFound = true;
                                           if (widget.notFound == true) {
+                                            widget.email.clear();
+                                            widget.password.clear();
                                             loginError(
                                                 widget.email.text.toString(),
                                                 widget.password.text
                                                     .toString());
+
                                             save();
                                           }
                                         },
