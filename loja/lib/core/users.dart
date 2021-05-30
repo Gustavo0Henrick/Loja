@@ -7,6 +7,7 @@ abstract class CustomUser {
       'lastName': "Silva",
       'email': "roberto@gmail.com",
       'password': 'abc123',
+      'number': '991234567'
     },
     {
       'id': '1',
@@ -15,6 +16,7 @@ abstract class CustomUser {
       'lastName': "de Souza",
       'email': "marcia@gmail.com",
       'password': "abc456",
+      'number': '991326745'
     },
     {
       'id': '2',
@@ -23,6 +25,7 @@ abstract class CustomUser {
       'lastName': "Alves",
       'email': "leticia@gmail.com",
       'password': "abc789",
+      'number': '981534577'
     },
     {
       'id': '3',
@@ -31,6 +34,7 @@ abstract class CustomUser {
       'lastName': "Ferreira",
       'email': "carlos@gmail.com",
       'password': "cba123",
+      'number': '981399449'
     },
     {
       'id': '4',
@@ -39,6 +43,7 @@ abstract class CustomUser {
       'lastName': "Goularte",
       'email': "thiago@gmail.com",
       'password': "cba456",
+      'number': '981787455'
     },
   ];
 }

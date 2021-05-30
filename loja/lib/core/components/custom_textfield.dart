@@ -4,7 +4,7 @@ import 'package:loja/core/colors.dart';
 // ignore: must_be_immutable
 class CustomTextfield extends StatefulWidget {
   TextEditingController text;
-
+  bool read;
   final Icon icon;
   final String hint;
 
@@ -22,6 +22,7 @@ class CustomTextfield extends StatefulWidget {
     this.password = false,
     this.type = TextInputType.text,
     this.loginFailed = false,
+    this.read = false,
   }) : super(key: key);
 
   @override
@@ -34,6 +35,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
     return Container(
       child: Center(
         child: TextFormField(
+          readOnly: widget.read,
           cursorColor: widget.loginFailed == true ? CustomColors.red : null,
           keyboardType: widget.type,
           obscureText: widget.obscure == null ? false : widget.obscure,

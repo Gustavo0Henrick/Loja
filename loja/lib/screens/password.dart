@@ -3,18 +3,19 @@ import 'package:loja/core/colors.dart';
 import 'package:loja/core/components/custom_textfield.dart';
 import 'package:loja/core/routes.dart';
 import 'package:loja/core/users.dart';
-import 'package:loja/homepage.dart';
+import 'package:loja/screens/editprofile.dart';
+import 'package:loja/screens/homepage.dart';
 
-class EditProfile extends StatelessWidget {
+class Password extends StatelessWidget {
   final int id;
-  TextEditingController name = TextEditingController();
-  TextEditingController lastname = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController passsword = TextEditingController();
-  TextEditingController number = TextEditingController();
-  bool obscure = true;
 
-  EditProfile({Key key, this.id}) : super(key: key);
+  TextEditingController newpassword = TextEditingController();
+  TextEditingController passsword = TextEditingController();
+  TextEditingController confirmedpassowrd = TextEditingController();
+  bool obscure = true;
+  bool obscure2 = true;
+
+  Password({Key key, this.id}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +37,7 @@ class EditProfile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.65,
                   width: MediaQuery.of(context).size.width * 0.85,
                   child: Card(
                     elevation: 5,
@@ -45,38 +46,34 @@ class EditProfile extends StatelessWidget {
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: 20),
+                          padding: EdgeInsets.only(top: 20, bottom: 40),
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.7,
                             child: CustomTextfield(
-                              hint: "Nome",
-                              icon: Icon(Icons.person),
-                              type: TextInputType.name,
-                              text: name,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            child: CustomTextfield(
-                              hint: "Sobrenome",
-                              icon: Icon(Icons.person),
-                              type: TextInputType.name,
-                              text: lastname,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            child: CustomTextfield(
-                              hint: "Sobrenome",
-                              icon: Icon(Icons.email),
+                              hint: "Senha Atual",
+                              icon: Icon(Icons.vpn_key),
                               type: TextInputType.emailAddress,
-                              text: email,
+                              text: passsword,
+                              password: true,
+                              obscure: obscure,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.75,
+                          child: Divider(),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 30),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            child: CustomTextfield(
+                              hint: "Nova Senha",
+                              icon: Icon(Icons.vpn_key_outlined),
+                              type: TextInputType.text,
+                              text: newpassword,
+                              password: true,
+                              obscure: obscure2,
                             ),
                           ),
                         ),
@@ -85,34 +82,17 @@ class EditProfile extends StatelessWidget {
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.7,
                             child: CustomTextfield(
-                              hint: "Sobrenome",
-                              icon: Icon(Icons.phone),
-                              type: TextInputType.number,
-                              text: number,
+                              hint: "Confirme a Senha",
+                              icon: Icon(Icons.vpn_key_outlined),
+                              type: TextInputType.text,
+                              text: confirmedpassowrd,
+                              password: true,
+                              obscure: obscure2,
                             ),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 20),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                elevation: 0,
-                              ),
-                              child: Text("Alterar a senha?"),
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (builder) =>
-                                            CustomRoutes.password));
-                              },
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20),
+                          padding: EdgeInsets.only(top: 40),
                           child: Container(
                             width: 150,
                             child: ElevatedButton(
@@ -147,7 +127,7 @@ class EditProfile extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                         builder: (builder) =>
-                                            HomePage(id: id)));
+                                            EditProfile(id: id)));
                               },
                             ),
                           ),
