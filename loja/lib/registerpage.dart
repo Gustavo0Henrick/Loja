@@ -35,7 +35,7 @@ class RegisterPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.9,
+                height: MediaQuery.of(context).size.height * 0.85,
                 width: MediaQuery.of(context).size.width * 0.85,
                 child: Card(
                   elevation: 5,
@@ -45,7 +45,7 @@ class RegisterPage extends StatelessWidget {
                   child: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 30),
+                        padding: EdgeInsets.only(top: 20),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.7,
                           child: CustomTextfield(
@@ -57,7 +57,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 30),
+                        padding: EdgeInsets.only(top: 20),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.7,
                           child: CustomTextfield(
@@ -69,7 +69,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 30),
+                        padding: EdgeInsets.only(top: 20),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.7,
                           child: CustomTextfield(
@@ -81,7 +81,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 30),
+                        padding: EdgeInsets.only(top: 20),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.7,
                           child: CustomTextfield(
@@ -95,7 +95,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 30),
+                        padding: EdgeInsets.only(top: 20),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.7,
                           child: CustomTextfield(
@@ -109,7 +109,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 30),
+                        padding: EdgeInsets.only(top: 20),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.7,
                           child: CustomTextfield(
@@ -121,7 +121,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 20),
+                        padding: EdgeInsets.only(top: 40),
                         child: Container(
                           width: 150,
                           child: ElevatedButton(

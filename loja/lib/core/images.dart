@@ -1,5 +1,3 @@
 abstract class CustomImages {
-  static const String gato = 'assets/image/gato.png';
-  static const String cao = 'assets/image/cao.png';
-  static const String veterinario = 'assets/image/veterinario.png';
+  static const String loja = 'assets/image/loja.png';
 }

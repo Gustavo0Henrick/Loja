@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loja/core/colors.dart';
 import 'package:loja/core/components/custom_textfield.dart';
+import 'package:loja/core/images.dart';
 import 'package:loja/core/routes.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
