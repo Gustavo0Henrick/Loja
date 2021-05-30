@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:loja/core/colors.dart';
+import 'package:loja/core/components/drawer.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(
+        name: "Teste",
+        email: "teste@teste.com",
+      ),
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          color: CustomColors.white,
-          onPressed: () {},
-        ),
+        iconTheme: IconThemeData(color: Colors.white),
         actions: [
           IconButton(
             icon: Icon(

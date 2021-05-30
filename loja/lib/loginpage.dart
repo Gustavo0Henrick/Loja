@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:loja/core/colors.dart';
 import 'package:loja/core/components/custom_textfield.dart';
-import 'package:loja/core/images.dart';
 import 'package:loja/core/routes.dart';
+import 'package:loja/core/users.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -10,13 +10,24 @@ import 'package:shared_preferences/shared_preferences.dart';
 class LoginPage extends StatefulWidget {
   bool switchValue;
   bool obscureText = true;
+  bool loginFailed = false;
+  bool notFound = true;
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  Future<void> loginError(email, password) async {
+    setState(() {
+      widget.email.text = email;
+      widget.password.text = password;
+      widget.loginFailed = true;
+    });
+  }
+
   Future<void> _getSP() async {
     var sp = await SharedPreferences.getInstance();
     widget.email.text = sp.get("email") ?? "";
@@ -98,9 +109,13 @@ class _LoginPageState extends State<LoginPage> {
                                       child: CustomTextfield(
                                         type: TextInputType.emailAddress,
                                         text: widget.email,
-                                        icon: Icon(Icons.person),
+                                        icon: Icon(Icons.person,
+                                            color: widget.loginFailed == true
+                                                ? CustomColors.red
+                                                : null),
                                         hint: "Email",
                                         obscure: false,
+                                        loginFailed: widget.loginFailed,
                                       ),
                                     ),
                                   ),
@@ -110,10 +125,14 @@ class _LoginPageState extends State<LoginPage> {
                                     height: 40,
                                     child: CustomTextfield(
                                       text: widget.password,
-                                      icon: Icon(Icons.vpn_key),
+                                      icon: Icon(Icons.vpn_key,
+                                          color: widget.loginFailed == true
+                                              ? CustomColors.red
+                                              : null),
                                       hint: "Senha",
                                       obscure: widget.obscureText,
                                       password: true,
+                                      loginFailed: widget.loginFailed,
                                     ),
                                   ),
                                   Row(
@@ -149,17 +168,47 @@ class _LoginPageState extends State<LoginPage> {
                                           elevation: 0,
                                         ),
                                         onPressed: () {
-                                          if (widget.switchValue == true) {
-                                            _setSP();
-                                          } else {
-                                            _clearSP();
+                                          int list = CustomUser.users.length;
+                                          String email = widget.email.text;
+                                          String password =
+                                              widget.password.text;
+
+                                          for (var i = 0; i < list; i++) {
+                                            if (email ==
+                                                    CustomUser.users[i]["email"]
+                                                        .toString() &&
+                                                password ==
+                                                    CustomUser.users[i]
+                                                            ["password"]
+                                                        .toString()) {
+                                              if (widget.switchValue == true) {
+                                                _setSP();
+                                              } else {
+                                                _clearSP();
+                                              }
+                                              widget.notFound = false;
+                                              widget.loginFailed = false;
+                                              print("Achou");
+
+                                              Navigator.pushReplacement(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (builder) =>
+                                                        CustomRoutes.homepage,
+                                                  ));
+                                              break;
+                                            } else {
+                                              widget.notFound = true;
+                                            }
                                           }
-                                          Navigator.pushReplacement(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (builder) =>
-                                                    CustomRoutes.homepage,
-                                              ));
+                                          // widget.notFound = true;
+                                          if (widget.notFound == true) {
+                                            loginError(
+                                                widget.email.text.toString(),
+                                                widget.password.text
+                                                    .toString());
+                                            save();
+                                          }
                                         },
                                         child: Text("Entrar"),
                                       ),

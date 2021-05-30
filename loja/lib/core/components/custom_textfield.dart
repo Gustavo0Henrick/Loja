@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja/core/colors.dart';
 
 // ignore: must_be_immutable
 class CustomTextfield extends StatefulWidget {
@@ -8,6 +9,7 @@ class CustomTextfield extends StatefulWidget {
   bool obscure;
   bool password;
   TextInputType type;
+  bool loginFailed;
 
   CustomTextfield({
     Key key,
@@ -17,6 +19,7 @@ class CustomTextfield extends StatefulWidget {
     this.obscure,
     this.password = false,
     this.type = TextInputType.text,
+    this.loginFailed = false,
   }) : super(key: key);
 
   @override
@@ -29,32 +32,33 @@ class _CustomTextfieldState extends State<CustomTextfield> {
     return Container(
       child: Center(
         child: TextFormField(
+          cursorColor: widget.loginFailed == true ? CustomColors.red : null,
           keyboardType: widget.type,
           obscureText: widget.obscure == null ? false : widget.obscure,
           decoration: InputDecoration(
-            labelText: widget.hint,
-            contentPadding: EdgeInsets.only(bottom: 10),
-            icon: widget.icon,
-            suffixIcon: widget.password
-                ? IconButton(
-                    onPressed: () {
-                      setState(() {
-                        widget.obscure = !widget.obscure;
-                      });
-                    },
-                    icon: widget.obscure
-                        ? Icon(
-                            Icons.visibility_off,
-                          )
-                        : Icon(
-                            Icons.visibility,
-                          ),
-                  )
-                : Icon(
-                    Icons.account_box,
-                    color: Colors.white,
-                  ),
-          ),
+              labelStyle: TextStyle(
+                  color: widget.loginFailed == true ? CustomColors.red : null),
+              labelText: widget.hint,
+              contentPadding: EdgeInsets.only(bottom: 10),
+              icon: widget.icon,
+              suffixIcon: widget.password
+                  ? IconButton(
+                      onPressed: () {
+                        setState(() {
+                          widget.obscure = !widget.obscure;
+                        });
+                      },
+                      icon: widget.obscure
+                          ? Icon(Icons.visibility_off,
+                              color: widget.loginFailed == true
+                                  ? CustomColors.red
+                                  : null)
+                          : Icon(Icons.visibility,
+                              color: widget.loginFailed == true
+                                  ? CustomColors.red
+                                  : null),
+                    )
+                  : null),
           controller: widget.text,
         ),
       ),
