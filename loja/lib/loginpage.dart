@@ -3,6 +3,7 @@ import 'package:loja/core/colors.dart';
 import 'package:loja/core/components/custom_textfield.dart';
 import 'package:loja/core/routes.dart';
 import 'package:loja/core/users.dart';
+import 'package:loja/homepage.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -194,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (builder) =>
-                                                        CustomRoutes.homepage,
+                                                        HomePage(id: i,),
                                                   ));
                                               break;
                                             } else {

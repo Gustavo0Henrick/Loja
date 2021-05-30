@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:loja/core/colors.dart';
 import 'package:loja/core/routes.dart';
+import 'package:loja/editprofile.dart';
 
 class NavDrawer extends StatelessWidget {
   final String name;
   final String email;
+  final int id;
 
-  const NavDrawer({Key key, this.name, this.email}) : super(key: key);
+  const NavDrawer({Key key, this.name, this.email, this.id}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -65,7 +67,10 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             title: Text(' Editar Perfil'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (builder) => EditProfile(id: id)));
             },
           ),
           ListTile(

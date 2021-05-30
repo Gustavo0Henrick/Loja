@@ -3,9 +3,11 @@ import 'package:loja/core/colors.dart';
 
 // ignore: must_be_immutable
 class CustomTextfield extends StatefulWidget {
-  final TextEditingController text;
+  TextEditingController text;
+
   final Icon icon;
   final String hint;
+
   bool obscure;
   bool password;
   TextInputType type;
