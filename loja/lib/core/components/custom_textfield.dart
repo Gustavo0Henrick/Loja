@@ -7,15 +7,17 @@ class CustomTextfield extends StatefulWidget {
   final String hint;
   bool obscure;
   bool password;
+  TextInputType type;
 
-  CustomTextfield(
-      {Key key,
-      this.text,
-      this.icon,
-      this.hint,
-      this.obscure,
-      this.password = false})
-      : super(key: key);
+  CustomTextfield({
+    Key key,
+    this.text,
+    this.icon,
+    this.hint,
+    this.obscure,
+    this.password = false,
+    this.type = TextInputType.text,
+  }) : super(key: key);
 
   @override
   _CustomTextfieldState createState() => _CustomTextfieldState();
@@ -26,7 +28,8 @@ class _CustomTextfieldState extends State<CustomTextfield> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: TextField(
+        child: TextFormField(
+          keyboardType: widget.type,
           obscureText: widget.obscure == null ? false : widget.obscure,
           decoration: InputDecoration(
             labelText: widget.hint,

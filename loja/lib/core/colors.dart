@@ -10,4 +10,6 @@ abstract class CustomColors {
   static Color lightOrange = Colors.orange[200];
   static Color yellowAcent = Colors.yellowAccent;
   static Color yellow = Colors.yellow;
+  static Color red = Colors.red;
+  static Color lightred = Colors.red[300];
 }
