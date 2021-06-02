@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loja/core/colors.dart';
 import 'package:loja/core/routes.dart';
 import 'package:loja/screens/editprofile.dart';
+import 'package:loja/screens/homepage.dart';
 
 class NavDrawer extends StatelessWidget {
   final String name;
@@ -59,7 +60,23 @@ class NavDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text('Configurações'),
+            title: Text('Pagina Inicial'),
+            onTap: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (builder) => HomePage(id: id),
+                  ));
+            },
+          ),
+          ListTile(
+            title: Text('Historico de Compras'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('Favoritos'),
             onTap: () {
               Navigator.pop(context);
             },
@@ -67,14 +84,12 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             title: Text(' Editar Perfil'),
             onTap: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (builder) => EditProfile(id: id)));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (builder) => EditProfile(id: id)));
             },
           ),
           ListTile(
-            title: Text('Falar Conosco'),
+            title: Text('Configurações'),
             onTap: () {
               Navigator.pop(context);
             },

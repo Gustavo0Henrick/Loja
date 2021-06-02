@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:loja/core/colors.dart';
 import 'package:loja/core/components/custom_textfield.dart';
-import 'package:loja/core/routes.dart';
-import 'package:loja/core/users.dart';
-import 'package:loja/screens/editprofile.dart';
-import 'package:loja/screens/homepage.dart';
 
+import 'package:loja/screens/editprofile.dart';
+
+
+// ignore: must_be_immutable
 class Password extends StatelessWidget {
   final int id;
 
