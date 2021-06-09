@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loja/core/colors.dart';
+import 'package:loja/src/core/colors.dart';
 
 // ignore: must_be_immutable
 class CustomEditTextfield extends StatefulWidget {

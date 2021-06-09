@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loja/core/colors.dart';
+import 'package:loja/src/core/colors.dart';
+import 'package:loja/src/core/components/animated_list.dart';
 
 class ShoppingCart extends StatelessWidget {
   const ShoppingCart({Key key}) : super(key: key);
@@ -44,6 +45,20 @@ class ShoppingCart extends StatelessWidget {
                 child: Card(
                   child: Column(
                     children: [
+                      Container(
+                        height: 150,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (builder) =>
+                                        AnimatedListWidget()));
+                          },
+                          enableFeedback: true,
+                          child: Text("Teste"),
+                        ),
+                      ),
                       Container(
                         width: 120,
                         child: ElevatedButton(

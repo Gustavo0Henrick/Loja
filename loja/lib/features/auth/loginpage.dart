@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:loja/core/colors.dart';
-import 'package:loja/core/components/custom_textfield.dart';
-import 'package:loja/core/routes.dart';
-import 'package:loja/core/users.dart';
-import 'package:loja/screens/homepage.dart';
+import 'package:loja/src/core/colors.dart';
+import 'package:loja/src/core/components/custom_textfield.dart';
+import 'package:loja/src/core/routes.dart';
+import 'package:loja/src/core/users.dart';
+import 'package:loja/features/homepage/homepage.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,7 +39,8 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _setSP() async {
     var spref = await SharedPreferences.getInstance();
     spref.setString("email", widget.email.text);
-    spref.setString("password", widget.password.text);
+    // spref.setString("password", widget.password.text);
+    spref.setString("password", "");
     spref.setBool("switchValue", widget.switchValue);
   }
 
@@ -49,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
     SharedPreferences email = await SharedPreferences.getInstance();
     email.setString('email', widget.email.text);
     SharedPreferences password = await SharedPreferences.getInstance();
-    password.setString('password', widget.password.text);
+    password.setString('password', "");
   }
 
   Future<void> _clearSP() async {
@@ -140,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Text("Lembrar senha?"),
+                                        Text("Lembrar usuario?"),
                                         Switch(
                                           value: widget.switchValue ?? false,
                                           onChanged: (bool value) async {
@@ -189,13 +190,14 @@ class _LoginPageState extends State<LoginPage> {
                                               }
                                               widget.notFound = false;
                                               widget.loginFailed = false;
-                                              print("Achou");
 
                                               Navigator.pushReplacement(
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (builder) =>
-                                                        HomePage(id: i,),
+                                                        HomePage(
+                                                      id: i,
+                                                    ),
                                                   ));
                                               break;
                                             } else {

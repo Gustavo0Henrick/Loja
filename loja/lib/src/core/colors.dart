@@ -13,4 +13,5 @@ abstract class CustomColors {
   static Color red = Colors.red;
   static Color lightred = Colors.red[300];
   static Color green = Colors.green;
+  static Color grey = Colors.grey;
 }

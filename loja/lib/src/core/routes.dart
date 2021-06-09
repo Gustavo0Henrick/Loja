@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:loja/screens/editprofile.dart';
-import 'package:loja/screens/homepage.dart';
-import 'package:loja/screens/loginpage.dart';
-import 'package:loja/screens/password.dart';
-import 'package:loja/screens/registerpage.dart';
-import 'package:loja/screens/shopping_cart.dart';
+import 'package:loja/src/screens/editprofile.dart';
+import 'package:loja/features/homepage/homepage.dart';
+import 'package:loja/features/auth/loginpage.dart';
+import 'package:loja/src/screens/password.dart';
+import 'package:loja/features/auth/registerpage.dart';
+import 'package:loja/src/screens/shopping_cart.dart';
 
 abstract class CustomRoutes {
   static Widget homepage = HomePage();

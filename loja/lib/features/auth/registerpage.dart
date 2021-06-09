@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:loja/core/colors.dart';
-import 'package:loja/core/components/custom_textfield.dart';
-import 'package:loja/core/routes.dart';
+import 'package:loja/src/core/colors.dart';
+import 'package:loja/src/core/components/custom_textfield.dart';
+import 'package:loja/src/core/routes.dart';
 
 // ignore: must_be_immutable
 class RegisterPage extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loja/core/colors.dart';
+import 'package:loja/src/core/colors.dart';
 
 class RowButtoms extends StatelessWidget {
   @override

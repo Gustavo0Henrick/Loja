@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:loja/core/colors.dart';
-import 'package:loja/core/components/carousel.dart';
-import 'package:loja/core/components/dots.dart';
-import 'package:loja/core/components/drawer.dart';
-import 'package:loja/core/components/row_buttons.dart';
-import 'package:loja/core/routes.dart';
-import 'package:loja/core/users.dart';
+import 'package:loja/src/core/colors.dart';
+import 'package:loja/features/homepage/components/carousel.dart';
+import 'package:loja/features/homepage/components/dots.dart';
+import 'package:loja/features/homepage/drawer.dart';
+import 'package:loja/features/homepage/row_buttons.dart';
+import 'package:loja/src/core/routes.dart';
+import 'package:loja/src/core/users.dart';
 
 class HomePage extends StatefulWidget {
   final int id;
@@ -27,6 +27,33 @@ class _HomePageState extends State<HomePage> {
         email: CustomUser.users[widget.id]["email"],
       ),
       appBar: AppBar(
+        title: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: CustomColors.white,
+          ),
+          height: MediaQuery.of(context).size.height * 0.05,
+          width: MediaQuery.of(context).size.width * 0.65,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Icon(Icons.search),
+                Container(
+                  width: 200,
+                  child: Text(
+                    "Buscar...",
+                    style: TextStyle(color: CustomColors.grey),
+                  ),
+                ),
+              ],
+            ),
+            enableFeedback: true,
+            onTap: () {},
+          ),
+        ),
+        backgroundColor: CustomColors.yellow,
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         actions: [
@@ -42,20 +69,8 @@ class _HomePageState extends State<HomePage> {
                     builder: (builder) => CustomRoutes.shoppingcart),
               );
             },
-          )
+          ),
         ],
-        centerTitle: true,
-        title: Text(
-          'Home Page',
-          style: TextStyle(
-            color: CustomColors.black,
-          ),
-        ),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            color: CustomColors.yellow,
-          ),
-        ),
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -64,15 +79,22 @@ class _HomePageState extends State<HomePage> {
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
+              stops: [
+                0.1,
+                0.7,
+                0.7,
+              ],
               colors: [
                 CustomColors.yellow,
                 CustomColors.orangeMain,
+                CustomColors.white,
               ]),
         ),
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
               children: [
+                RowButtoms(),
                 Container(
                   height: 200,
                   width: MediaQuery.of(context).size.width,
@@ -91,9 +113,8 @@ class _HomePageState extends State<HomePage> {
                   height: 20,
                   width: 60,
                 ),
-                RowButtoms(),
                 Container(
-                  height: 550,
+                  height: 430,
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     elevation: 5,
@@ -102,7 +123,8 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: 10, left: 30),
+                          padding:
+                              EdgeInsets.only(top: 20, left: 30, bottom: 10),
                           child: Row(
                             children: [
                               Text(
@@ -114,6 +136,22 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                             ],
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          height: MediaQuery.of(context).size.height * 0.5,
+                          child: ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: 5,
+                            itemBuilder: (BuildContext context, int index) {
+                              return ListTile(
+                                onTap: () {},
+                                subtitle: Text("Test Test "),
+                                title: Text("Teste"),
+                                leading: Icon(Icons.phone_android_rounded),
+                              );
+                            },
                           ),
                         ),
                       ],

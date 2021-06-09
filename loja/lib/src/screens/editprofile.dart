@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:loja/core/colors.dart';
-import 'package:loja/core/components/custom_edit_textfield.dart';
+import 'package:loja/src/core/colors.dart';
+import 'package:loja/src/core/components/custom_edit_textfield.dart';
 
-import 'package:loja/core/users.dart';
-import 'package:loja/screens/homepage.dart';
-import 'package:loja/screens/password.dart';
+import 'package:loja/src/core/users.dart';
+import 'package:loja/features/homepage/homepage.dart';
+import 'package:loja/src/screens/password.dart';
 
 class EditProfile extends StatefulWidget {
   final int id;
