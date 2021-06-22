@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loja/features/homepage/homepage.dart';
-import 'package:loja/features/auth/loginpage.dart';
+import 'package:loja/src/pages/login/loginpage.dart';
+
 
 class AppWidget extends StatelessWidget {
   @override

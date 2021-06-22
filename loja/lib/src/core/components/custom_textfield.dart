@@ -7,7 +7,7 @@ class CustomTextfield extends StatefulWidget {
   bool read;
   final Icon icon;
   final String hint;
-
+  Function validator;
   bool obscure;
   bool password;
   TextInputType type;
@@ -18,11 +18,12 @@ class CustomTextfield extends StatefulWidget {
     this.text,
     this.icon,
     this.hint,
-    this.obscure,
+    this.obscure = false,
     this.password = false,
     this.type = TextInputType.text,
     this.loginFailed = false,
     this.read = false,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -35,6 +36,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
     return Container(
       child: Center(
         child: TextFormField(
+          validator: widget.validator,
           readOnly: widget.read,
           cursorColor: widget.loginFailed == true ? CustomColors.red : null,
           keyboardType: widget.type,

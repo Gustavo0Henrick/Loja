@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loja/src/core/colors.dart';
 import 'package:loja/src/core/routes.dart';
-import 'package:loja/src/screens/editprofile.dart';
+import 'package:loja/src/pages/profile/editprofile.dart';
 import 'package:loja/features/homepage/homepage.dart';
 
 class NavDrawer extends StatelessWidget {

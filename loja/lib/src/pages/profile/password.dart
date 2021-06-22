@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loja/src/core/colors.dart';
 import 'package:loja/src/core/components/custom_textfield.dart';
 
-import 'package:loja/src/screens/editprofile.dart';
+import 'package:loja/src/pages/profile/editprofile.dart';
 
 
 // ignore: must_be_immutable
