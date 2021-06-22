@@ -1,6 +1,6 @@
 class Routes {
   static const signUp =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCIOAyzW60QFAU1_5ze1Tb-CXaXKUoeZZ4";
+      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=KEY";
   static const signIn =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIOAyzW60QFAU1_5ze1Tb-CXaXKUoeZZ4";
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=KEY";
 }
